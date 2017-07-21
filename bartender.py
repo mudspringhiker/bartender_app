@@ -20,11 +20,18 @@ ingredients = {
 def main():
     # print header
     header()
-    # ask what style of drink a customer likes
-    # gather responses in a new dict
-    responses = ask_customer(questions)
-    # construct a drink as a list then return it
-    create_drink(responses, ingredients)
+    repeat = True
+    while repeat:
+        # ask what style of drink a customer likes
+        # gather responses in a new dict
+        responses = ask_customer(questions)
+        # construct a drink as a list then return it
+        create_drink(responses, ingredients)
+        another_drink = input("Do ye want another drink? (y/n) ")
+        if another_drink.lower() not in ["yes", "y"]:
+            repeat = False
+            print("Off with ye then!")
+        print()
     
 
 def header():
@@ -35,11 +42,11 @@ def header():
 
 
 def ask_customer(questions):
-    print("What style drink do you like? \nAnswer yes or no:")
+    print("What style drink do you like?")
     print()
     responses = {}
     for key, value in questions.items():
-        response = input(value + " ")
+        response = input(value + " (y/n) ")
         if response.lower() == "y" or response.lower == "yes":
             responses[key] = True
         else:
@@ -61,8 +68,9 @@ def create_drink(responses, ingredients):
             else:
                 print("\t" + ingredient.title() + "!")
     else:
-        print("Well, no drink fer ye then!")
+        print("Well, I don't think ye want a drink, then!")
     print()
+    
     
 if __name__ == "__main__":
     main()
