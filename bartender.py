@@ -28,9 +28,9 @@ def main():
     
 
 def header():
-    print("--------------------------")
-    print("    THE BARTENDER APP")
-    print("--------------------------")
+    print("---------------------------------")
+    print("    THE PIRATE BARTENDER APP")
+    print("---------------------------------")
     print()
 
 
@@ -53,10 +53,16 @@ def create_drink(responses, ingredients):
         if response:
             drink.append(random.choice(ingredients[key]))
     print()
-    print("Ere is yer drink!")
-    for ingredient in drink:
-        print("\t" + ingredient)
-    
+    if drink:
+        print("Ere is yer drink:")
+        for ingredient in drink:
+            if ingredient == drink[-1]:
+                print("\tand a " + ingredient.title() + "!!!!")
+            else:
+                print("\t" + ingredient.title() + "!")
+    else:
+        print("Well, no drink fer ye then!")
+    print()
     
 if __name__ == "__main__":
     main()
