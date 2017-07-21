@@ -1,5 +1,6 @@
 import random
 
+
 questions = {
     "strong": "Do ye like yer drinks strong?",
     "salty": "Do ye like it with a salty tang?",
@@ -23,7 +24,7 @@ def main():
     # gather responses in a new dict
     responses = ask_customer(questions)
     # construct a drink as a list then return it
-    print(create_drink(responses, ingredients))
+    create_drink(responses, ingredients)
     
 
 def header():
@@ -51,7 +52,10 @@ def create_drink(responses, ingredients):
     for key, response in responses.items():
         if response:
             drink.append(random.choice(ingredients[key]))
-    return drink
+    print()
+    print("Ere is yer drink!")
+    for ingredient in drink:
+        print("\t" + ingredient)
     
     
 if __name__ == "__main__":
