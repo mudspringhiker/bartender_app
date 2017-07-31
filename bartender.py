@@ -17,28 +17,20 @@ ingredients = {
     "fruity": ["slice of orange", "dash of cassis", "cherry on top"],
 }
 
+
 def main():
     # print header
     header()
     repeat = True
     while repeat:
-        # ask what style of drink a customer likes
-        # gather responses in a new dict
         responses = ask_customer(questions)
-        # construct a drink as a list then return it
         create_drink(responses, ingredients)
-        another_drink = input("Do ye want another drink? (y/n) ")
-        if another_drink.lower() not in ["yes", "y"]:
-            repeat = False
-            print("Off with ye then!")
-        print()
-    
+        repeat = ask_for_another_drink()
 
 def header():
     print("---------------------------------")
     print("    THE PIRATE BARTENDER APP")
-    print("---------------------------------")
-    print()
+    print("---------------------------------\n")
 
 
 def ask_customer(questions):
@@ -70,6 +62,20 @@ def create_drink(responses, ingredients):
     else:
         print("Well, I don't think ye want a drink, then!")
     print()
+    
+
+def ask_for_another_drink():
+    another_drink = input("P'raps another drink? (y/n) ")
+    if another_drink.lower() in ['no', 'n']:
+        print("Off with ye then!\n")
+        return False
+    elif another_drink.lower() in ['yes', 'y']:
+        print("Aye!\n")
+        return True
+    else:
+        print("Mind repeatin that, matey?")
+        return ask_for_another_drink()
+    
     
     
 if __name__ == "__main__":
