@@ -34,7 +34,7 @@ def header():
 
 
 def ask_customer(questions):
-    print("What style drink do you like?")
+    print("What style drink do ye like?")
     print()
     responses = {}
     for key, value in questions.items():
@@ -73,7 +73,7 @@ def ask_for_another_drink():
         print("Aye!\n")
         return True
     else:
-        print("Mind repeatin that, matey?")
+        print("Mind repeatin that, matey?\n")
         return ask_for_another_drink()
     
     
