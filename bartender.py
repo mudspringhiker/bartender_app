@@ -77,6 +77,5 @@ def ask_for_another_drink():
         return ask_for_another_drink()
     
     
-    
 if __name__ == "__main__":
     main()
